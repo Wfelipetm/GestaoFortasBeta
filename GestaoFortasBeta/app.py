@@ -1,7 +1,7 @@
 from flask import Flask, redirect, render_template, request, url_for
 from config import DB_URI
-from models.models import db
-#from views.crud_cadastro_veiculos import CadastroVeiculo
+from models.models import CadastroVeiculo, db
+from views.crud_cadastro_veiculos import CadastroVeiculo
 from views import index
 
 
@@ -24,10 +24,8 @@ with app.app_context():
 app.route('/')(index)
 
 
-
-
 # Rota para cadastrar veículo
-'''@app.route('/', methods=['GET', 'POST'])
+@app.route('/cadastro_veiculo', methods=['GET', 'POST'])
 def cadastrar_veiculo():
     if request.method == 'POST':
         imei = request.form['imei']
@@ -38,11 +36,7 @@ def cadastrar_veiculo():
         db.session.commit()
 
         return redirect(url_for('obtertodos_veiculos'))
-
-    return render_template('cadastro_veiculo.html')'''
-
-
-
+    return render_template('cadastro_veiculo.html')
 
 
 # Configuração Global
