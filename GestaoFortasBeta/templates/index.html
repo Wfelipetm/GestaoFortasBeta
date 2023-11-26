@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="30">
+
     <title>Mapa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static\css\css\style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
+
 <body>
-    <!-- Adicione a imagem ou logotipo no topo -->
-    <div style="text-align: lelt; padding: 10px;">
-        <img src="https://novoportal.itaguai.rj.gov.br/@@obter_logo_portal/logo.png" alt="Logotipo" style="width: 150px; height: auto;">
+
+    {% include 'navbar.html' %}
+
+
+    <div class="container">
+        <!-- Adicione o mapa HTML gerado pelo Folium -->
+        {% include 'map.html' %}
+    </div>
+    
+
+    <div class= "conteiner" style="margin-top: 0px;">
+        {% include 'footer.html' %}
     </div>
 
-    <!-- Adicione o mapa HTML gerado pelo Folium -->
-    {% include 'map.html' %}
-</body>
-</html>
 
+    <!-- Adicione o JavaScript do Bootstrap (opcional, mas muitas funcionalidades do Bootstrap dependem dele) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

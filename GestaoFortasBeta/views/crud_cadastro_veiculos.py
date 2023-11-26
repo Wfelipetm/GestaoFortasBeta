@@ -24,7 +24,7 @@ with app.app_context():
 
 
 # Rota para exibir todos os veículos cadastrados
-@app.route('/')
+@app.route('/seu_endpoint')
 def obtertodos_veiculos():
     # Consulta todos os registros na tabela CadastroVeiculo
     veiculos = CadastroVeiculo.query.all()

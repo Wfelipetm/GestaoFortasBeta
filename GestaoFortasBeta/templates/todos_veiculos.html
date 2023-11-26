@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Lista de Veículos</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static\css\css\style.css">
+    <!-- CSS específico para esta página -->
+ 
+</head>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container"style="margin-top: 130px;">
+        <h1>Lista de Veículos</h1>
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr scope="row">
+                    <th>Imei</th>
+                    <th>Placa</th>
+                    <th>Editar</th>
+                    <th>Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for veiculo in veiculos %}
+                    <tr>
+                        <td>{{ veiculo.imei }}</td>
+                        <td>{{ veiculo.placa }}</td>
+                        <td><a href="{{ url_for('editar_veiculo', id=veiculo.id) }}" class="btn btn-warning btn-sm">Editar</a></td>
+                        <td><a href="{{ url_for('deletar_veiculo', id=veiculo.id) }}" class="btn btn-danger btn-sm">Deletar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <a href="{{ url_for('cadastrar_veiculo') }}" class="btn btn-primary">Adicionar Novo Veículo</a>
+    </div>
+<div class= "conteiner" style="margin-top: 197px;">
+    {% include 'footer.html' %}
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
